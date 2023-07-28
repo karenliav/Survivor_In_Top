@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Map, 적대 캐릭터 재배치 스크립트
+// 플레이어에게서 거리가 멀어질 경우 재배치
 public class Reposition : MonoBehaviour
 {
     Collider2D coll;
@@ -39,7 +41,14 @@ public class Reposition : MonoBehaviour
             case "Enemy":
                 if (coll.enabled)
                 {
-                    transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
+                    if (diffX > diffY)
+                    {
+                        transform.Translate(Vector3.right * dirX * 39);
+                    }
+                    else if (diffX < diffY)
+                    {
+                        transform.Translate(Vector3.up * dirY * 39);
+                    }
                 }
                 break;
         }
