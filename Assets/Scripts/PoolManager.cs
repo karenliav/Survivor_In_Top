@@ -9,7 +9,7 @@ public class PoolManager : MonoBehaviour
     public GameObject[] prefabs;
     // 풀을 담당하는 리스트들
     List<GameObject>[] pools;
-    
+        
     void Awake()
     {
         pools = new List<GameObject>[prefabs.Length];
@@ -20,12 +20,17 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        GameManager.Instance.pool = this.GetComponent<PoolManager>();
+    }
+
     // Pool에서 적대 캐릭터 생성
     public GameObject Get(int index)
     {
         GameObject select = null;
 
-        // 선택한 풀의 놀고(비활성화) 있는 게임오브젝트 접근
+        // 선택한 풀의 비활성화 게임오브젝트 접근
         // 발견하면 select 변수에 할당
         foreach (GameObject item in pools[index])
         {

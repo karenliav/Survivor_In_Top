@@ -28,7 +28,7 @@ public class Reposition : MonoBehaviour
 
         switch (transform.tag)
         {
-            case "Ground":  // 맵이 생성될때 플레이어 이동 방향으로 생기기 때문에 (playerDir) 몹에 밀리면 더이상 연속해서 생기지 않음
+            case "Ground":  // 맵이 생성될때 플레이어 이동 방향으로 생김 (playerDir)
                 if (diffX > diffY)
                 {
                     transform.Translate(Vector3.right * dirX * 80);

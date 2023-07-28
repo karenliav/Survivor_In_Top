@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
 
     void OnEnable()
     {
-        //target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
+        target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
         isLive = true;
         coll.enabled = true;            // 콜라이더 활성화
         rigid.simulated = true;         // 리지드바디 물리적 활성화
