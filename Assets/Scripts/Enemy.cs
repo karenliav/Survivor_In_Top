@@ -40,6 +40,13 @@ public class Enemy : MonoBehaviour
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;  // 충돌로 인하여 밀려나는 물리 속도를 0으로 만들어 이동에 영향이 없게끔 함
+
+        // 적대 캐릭터 위치가 재배치 범위 밖으로 벗어나는 경우 (Area 콜라이더 범위 밖)
+        if (Mathf.Abs(dirVec.x) + Mathf.Abs(dirVec.y) > 40)
+        {
+            Vector2 vec = new Vector2(0, 20);
+            rigid.MovePosition(target.position + vec);
+        }
     }
     void LateUpdate()
     {
