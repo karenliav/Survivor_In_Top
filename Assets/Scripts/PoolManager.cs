@@ -7,7 +7,6 @@ public class PoolManager : MonoBehaviour
 {
     // 프리팹들을 보관할 변수
     public GameObject[] prefabs;
-
     // 풀을 담당하는 리스트들
     List<GameObject>[] pools;
     

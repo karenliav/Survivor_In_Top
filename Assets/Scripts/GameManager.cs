@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // 게임 전반적인 관리 스크립트
 public class GameManager : MonoBehaviour
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+
     }
 
     void Update()
